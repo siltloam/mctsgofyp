@@ -1,0 +1,94 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>112</x><y>651</y><w>200</w><h>192</h></coordinates><panel_attributes>go.stone
+Represents a stone on the board
+bg=pink
+--
+*Attributes*
+-board: Board
+-coord: Tuple
+-colour: Boolean
+-group: Group
+--
+Responsibilities
+&lt;&lt;constructor&gt;&gt; +Stone(board, coord, colour)
+&lt;&lt;constructor&gt;&gt; +Stone(find_group())
++neighbours(): arr[Tuple]
++find_group(): Group
++get_liberties(): arr[Tuple]
++delete(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>424</x><y>635</y><w>208</w><h>160</h></coordinates><panel_attributes>go.group
+Represents a group of stones on the board
+bg=pink
+--
+*Attributes*
+-board: Board
+-stones: arr[Stone]
+--
+Responsibilities
+&lt;&lt;constructor&gt;&gt; +Group(board, stones)
+&lt;&lt;constructor&gt;&gt; +Group(board.groups.append())
++merge(Group: second_group): void
++update_groups(): void
++delete(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>776</x><y>635</y><w>200</w><h>128</h></coordinates><panel_attributes>go.board
+Represents a board object
+bg=pink
+--
+*Attributes*
+-turn: int
+-groups: arr[Group]
+--
+Responsibilities
+&lt;&lt;constructor&gt;&gt; +Stone(turn, groups)
++find_stones(arr[Tuple]: coords): arr[Stone]
++update_turn(): const
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>347</y><w>200</w><h>192</h></coordinates><panel_attributes>go.constants
+Constants used in the program
+bg=blue
+--
+*Attributes*
+_WIDTH_
+_HEIGHT_
+_WINDOW_
+_ROWS_
+_COLS_
+_SQUARE_SIZE_
+_WHITE_
+_BLACK_
+_BROWN_
+_BACKGROUND_
+_WHITE_STONE_
+_BLACK_STONE_
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>304</x><y>715</y><w>136</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>150;10;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>691</y><w>168</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..n</panel_attributes><additional_attributes>190;10;10;30</additional_attributes></element><element><id>UMLClass</id><coordinates><x>104</x><y>307</y><w>224</w><h>160</h></coordinates><panel_attributes>&lt;&lt;View&gt;&gt;
+go.stone_view
+Front-end representation of a stone
+bg=green
+--
+*Attributes*
+-blit_coords:Tuple
+--
+Responsibilities
+&lt;&lt;constructor&gt;&gt; +StoneView(blit_coords)
+&lt;&lt;constructor&gt;&gt; +StoneView(draw())
++draw(): void
++delete(): void
++get_image: Image
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>459</y><w>48</w><h>208</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>40;10;10;240</additional_attributes></element><element><id>Relation</id><coordinates><x>856</x><y>419</y><w>40</w><h>232</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;270</additional_attributes></element><element><id>UMLClass</id><coordinates><x>752</x><y>267</y><w>224</w><h>160</h></coordinates><panel_attributes>&lt;&lt;View&gt;&gt;
+go.board_view
+Front-end representation of the board
+bg=green
+--
+*Attributes*
+-outline: pygame.Rect
+--
+Responsibilities
+&lt;&lt;constructor&gt;&gt; +StoneView(outline)
+&lt;&lt;constructor&gt;&gt; +StoneView(draw_board())
++draw_board(pygame.display: window): void
++update_visuals(StoneView: new_stone): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>424</x><y>75</y><w>208</w><h>96</h></coordinates><panel_attributes>main
+Driver class for the Go application
+bg=yellow
+--
+Responsibilities
+Initialises stone_view and board_view
+objects as the game runs, performs updates
+as each new stone_view object is created</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>147</y><w>192</w><h>136</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;220;150</additional_attributes></element><element><id>Relation</id><coordinates><x>216</x><y>115</y><w>224</w><h>208</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>260;10;10;240</additional_attributes></element></diagram>
